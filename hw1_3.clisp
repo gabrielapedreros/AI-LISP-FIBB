@@ -1,0 +1,24 @@
+;Gabriela Pedreros 
+;GP21J
+;purley applicative LISP program w/ FASTFIB and fib-helper
+
+(defun fib-helper(N x y)
+;decrement N while finding Fib
+;set x = y 
+;set y = x + y
+;when N = 0, print result (fibonacci number)
+    (if (= N 0)
+        x
+        (fib-helper (- N 1) y (+ x y))
+    )
+)
+(defun FASTFIB(N)
+;0 and 1 are base start cases
+  (fib-helper N 0 1)
+)
+
+;when i run (time(FASTFIB 100)), it takes 6084 processor cycles
+;when i run (time(FIB 40)), it takes 2,681,768,827 processor cycles
+;and 1.4 seconds 
+;when i run (time(FIB 50)), i still have not recieved an output
+;i think it would take months or years for (FIB 100) to compute
